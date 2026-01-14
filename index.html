@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>การ์ดเชิญงานแต่งงาน</title>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background: radial-gradient(circle at top, #fff5f8, #f3dfe6);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 480px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        align-items: center;
+      }
+
+      .container {
+        padding: 12px;
+      }
+
+      .form-box, .card {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .card {
+        padding: 32px 20px;
+      }
+
+      .card h1 {
+        font-size: 20px;
+      }
+
+      .card .guest {
+        font-size: 18px;
+      }
+
+      .card .names {
+        font-size: 19px;
+      }
+    }
+
+      .form-box, .card {
+      width: 100%;
+      min-height: auto;
+      background: linear-gradient(180deg, #fff6fa, #f2dbe4);
+      border-radius: 26px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      padding: 32px 22px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+      .card {
+        padding: 32px 20px;
+      }
+
+      .card h1 {
+        font-size: 20px;
+      }
+
+      .card .guest {
+        font-size: 18px;
+      }
+
+      .card .names {
+        font-size: 19px;
+      }
+    }
+      .container { flex-direction: column; gap: 20px; padding: 16px; }
+      .form-box, .card { width: 100%; max-width: 100%; }
+      .form-box input { font-size: 18px; padding: 14px; }
+      .card { padding: 40px 28px; }
+      .card h1 { font-size: 21px; }
+      .card .guest { font-size: 19px; }
+      .card .names { font-size: 20px; }
+    }
+
+    .form-box {
+      background: #ffffff;
+      padding: 22px 20px;
+      border-radius: 18px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .form-box h2 {
+      margin: 0 0 18px;
+      font-size: 22px;
+      text-align: center;
+      font-family: 'Charm', cursive;
+    }
+
+    .form-box input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid #d4c4b2;
+    }
+
+    .card {
+      width: 400px;
+      max-width: 420px;
+      min-height: 280px;
+      background: linear-gradient(180deg, #fff6fa, #f2dbe4);
+      border-radius: 26px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      padding: 32px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 22px;
+      border: 1.8px double #caa76a;
+      pointer-events: none;
+    }
+
+    .ornament {
+      font-size: 26px;
+      color: #d4a373;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .card h1 {
+      font-family: 'Charm', cursive;
+      font-size: 20px;
+      margin: 10px 0 16px;
+      color: #c48aa3;
+    }
+
+    .card .names {
+      font-family: 'Charm', cursive;
+      font-size: 18px;
+      margin: 6px 0;
+      color: #c08aa0;
+      font-weight: 700;
+    }
+
+    .card .names.royal-name { color: #7a3f58; }
+
+    .card .names.light {
+      font-weight: 400;
+      opacity: 0.85;
+    }
+
+    .divider {
+      width: 90px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #caa76a, transparent);
+      margin: 16px auto;
+    }
+
+    .card .guest {
+      margin-top: 16px;
+      font-size: 17px;
+      font-weight: 600;
+      font-family: 'Charm', cursive;
+      color: #9b6b82;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ฟอร์มกรอกชื่อ -->
+    <div class="form-box" id="formBox">
+      <h2>กรอกชื่อผู้มางาน</h2>
+      <input type="text" placeholder="เช่น จ๊ะจ๋า ellexis" id="nameInput" />
+      <button onclick="showCard()" style="margin-top:14px;width:100%;padding:12px;border-radius:12px;border:none;background:#caa76a;color:#fff;font-size:16px;font-family:'Charm',cursive;cursor:pointer;">
+        แสดงการ์ดเชิญ
+      </button>
+    </div>
+
+    <!-- การ์ดแต่งงาน -->
+    <div class="card" id="card" style="display:none;">
+      <div class="ornament">༻❀༺</div>
+      <div class="guest" id="guestName">ขอเรียนเชิญคุณ</div>
+      <h1>ร่วมเป็นเกียรติในพิธีมงคลสมรส</h1>
+      <div class="names light">ระหว่าง</div>
+      <div class="names royal-name">ม.ร.ว. ใจพิสุทธิ์ อรุณวลัญช์</div>
+      <div class="names light">และ</div>
+      <div class="names royal-name">ม.ล. สหรัฐ รังสิมันต์เทวา</div>
+      <div class="divider"></div>
+    </div>
+  </div>
+
+  <script>
+    function showCard() {
+      const input = document.getElementById('nameInput').value.trim();
+      const guest = document.getElementById('guestName');
+      const formBox = document.getElementById('formBox');
+      const card = document.getElementById('card');
+
+      if (input === "") {
+        guest.textContent = "ขอเรียนเชิญ คุณ";
+      } else {
+        guest.textContent = "ขอเรียนเชิญ คุณ" + input;
+      }
+
+      formBox.style.display = "none";
+      card.style.display = "block";
+    }
+  </script>
+</body>
+</html>
